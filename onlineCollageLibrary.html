@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <link rel="icon" href="image/icon3.ico">
+
+    <title>Collage Library</title>
+
+    <style>
+        .dark {
+            color: white;
+        }
+
+        .switch {
+            position: relative;
+            width: 100px;
+            height: 30px;
+            border-radius: 20px;
+            background: #02141a;
+            position: fixed;
+            bottom: 40px;
+            left: 0;
+            margin-left: -80px;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .switch:after {
+            background-image: url('image/Apps-reboot-icon.png');
+            background-size: 25px 25px;
+            background-repeat: no-repeat;
+            display: inline-block;
+            width: 25px;
+            height: 25px;
+            content: "";
+            position: absolute;
+            right: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            border-radius: 50%;
+        }
+
+        .switch:hover {
+            margin-left: -40px;
+        }
+
+        .dark .close {
+            color: white;
+        }
+
+        .dark .switch {
+            background-color: white;
+        }
+
+        #radio1,
+        #radio2,
+        #radio3 {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body class="">
+    <div class="container my-2 " id="msg"></div>
+    <div class="switch" id="switch"></div>
+    <div class="container my-3">
+        <form id="form1">
+            <div class="form-group row">
+                <label for="bookName" class="col-sm-2 col-form-label">Book Name</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="bookName" placeholder="Book Name">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="authorName" class="col-sm-2 col-form-label">Author Name</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="authorName" placeholder="Author Name">
+                </div>
+            </div>
+            <fieldset class="form-group">
+                <div class="row">
+                    <legend class="col-form-label col-sm-2 pt-0">Books Catagory</legend>
+                    <div class="col-sm-10">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gridRadios" id="radio1" value="option1">
+                            <label class="form-check-label" for="gridRadios1">
+                                Programming
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gridRadios" id="radio2" value="option2">
+                            <label class="form-check-label" for="gridRadios2">
+                                LifeStyle
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gridRadios" id="radio3" value="option3">
+                            <label class="form-check-label" for="gridRadios3">
+                                General Knowledge
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <div class="form-group row">
+                <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary">Add Books
+                    </button>
+                </div>
+            </div>
+        </form>
+
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+
+                    <th scope="col">Book Name</th>
+                    <th scope="col">Author Name</th>
+                    <th scope="col">Book Type</th>
+                </tr>
+            </thead>
+            <tbody id="table">
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        showDisplay();
+        let btn = document.getElementById("switch");
+        btn.addEventListener("click", changeBackground);
+
+        function changeBackground() {
+            let pageMode = localStorage.getItem("pageMode");
+            if (pageMode === "Dark") {
+                localStorage.setItem("pageMode", "White");
+                document.querySelector("body").style.backgroundColor = "white";
+                document.querySelector("body").className = "";
+            } else {
+                localStorage.setItem("pageMode", "Dark");
+                document.querySelector("body").style.backgroundColor = "#02141a";
+                document.querySelector("body").className = "dark";
+            }
+        }
+
+        window.onload = function () {
+            let pageMode = localStorage.getItem("pageMode");
+            if (pageMode == "Dark") {
+                document.querySelector("body").style.backgroundColor = '#02141a';
+                document.querySelector("body").className = "dark";
+            } else {
+                document.querySelector("body").style.backgroundColor = "white";
+                document.querySelector("body").className = "";
+            }
+        }
+        // add Books Methods using function Object method
+        // function Books(bookName, bookAuthor, bookType) {
+        //     this.bookName = bookName;
+        //     this.bookAuthor = bookAuthor;
+        //     this.bookType = bookType;
+        // }
+
+        // function Display() {
+
+        // }
+        // // add method to add books in table 
+        // Display.prototype.add = function (book) {
+        //     let table = document.getElementById("table")
+        //     let tableData = `   <tr>
+        //                     <td>${book.bookName}</td>
+        //                     <td>${book.bookAuthor}</td>
+        //                     <td>${book.bookType}</td>
+        //                     </tr>`
+        //     table.innerHTML += tableData;
+        // }
+
+        // // clear method to clear input fields after submit
+        // Display.prototype.clear = function () {
+        //     let form = document.getElementById("form1");
+        //     form.reset();
+        // }
+
+        // // validate method to validate form input fields is set 
+        // Display.prototype.validate = function (book) {
+        //     if (book.bookName == '' || book.bookAuthor == '' || book.bookType == '') {
+        //         return false;
+        //     } else {
+        //         return true;
+        //     }
+        // }
+        // // show a alert after success or error
+        // Display.prototype.show = function (txt) {
+        //     let msg = document.getElementById("msg");
+        //     let changeCase;
+        //     if (txt === 'Book Added Successfull') changeCase = 'success'
+        //     else changeCase = 'danger';
+        //     msg.innerHTML = `
+        //     <div class="alert alert-${changeCase} alert-dismissible fade show" role="alert">${txt}
+        //        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        //                <span aria-hidden="true">&times;</span>
+        //       </button>
+        //     </div>`
+
+        //     setTimeout(() => {
+        //         msg.innerHTML = "";
+        //     }, 3000)
+        // }
+
+
+        // let form = document.getElementById("form1");
+        // form.addEventListener('submit', onSubmitForm)
+
+        // function onSubmitForm(e) {
+        //     let name,author,type,Programming,LifeStyle,GK,book,display;
+        //     name = document.getElementById('bookName').value;
+        //     author = document.getElementById('authorName').value;
+        //     type = "";
+
+        //     Programming = document.getElementById("radio1");
+        //      if (Programming.checked)
+        //         type = "Programming";
+
+        //     LifeStyle = document.getElementById("radio2");
+        //      if (LifeStyle.checked)
+        //          type = "Lifestyle";
+
+        //     GK = document.getElementById("radio3");
+        //      if (GK.checked)
+        //          type = "General Knowledge";
+
+        //     book = new Books(name, author, type);
+
+        //     display = new Display();
+        //     if (display.validate(book)) {
+        //         display.add(book);
+        //         display.clear();
+        //         display.show('Book Added Successfull');
+        //     }
+        //     else display.show("Please Enter Valid Values");
+
+        //     e.preventDefault();
+        // }
+
+
+        // add book using Class method
+
+
+        function showDisplay() {
+            let books = localStorage.getItem("books");
+            let newBook;
+            if (books == null) {
+                newBook = [];
+            } else {
+                newBook = JSON.parse(books);
+            }
+            let table = document.getElementById("table");
+            let tableData = "";
+            newBook.forEach(function (element,index) {
+                tableData += `<tr>
+                            <td>${element.name}</td>
+                            <td>${element.author}</td>
+                            <td>${element.type} <span class="close" onclick="del(${index})">&times;</span></td>                  
+                            </tr>`
+            });
+            table.innerHTML = tableData;
+        }
+        function del(index){
+            let books = localStorage.getItem("books");
+            let newBook;
+            if (books == null) {
+                newBook = [];
+            } else {
+                newBook = JSON.parse(books);
+            }
+            newBook.splice(index,1);
+            localStorage.setItem("books",JSON.stringify(newBook));
+            showDisplay();
+        }
+
+       function Books(book, author, type) {
+            
+                this.bookName = book;
+                this.bookAuthor = author;
+                this.bookType = type;
+            
+        }
+
+        function Display() {
+
+        }
+        Display.prototype.validate = function(book) {
+            if (book.bookName == '' || book.bookAuthor == '' || book.bookType == '') {
+                return false;
+            } else {
+                return true;
+            }
+        }
+        Display.prototype.show = function (type, message) {
+            let msg, changeCase;
+
+            msg = document.getElementById("msg");
+            msg.innerHTML = `
+            <div class="alert alert-${type} alert-dismissible fade show" role="alert">${message}
+               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                       <span aria-hidden="true">&times;</span>
+              </button>
+            </div>`
+
+            setTimeout(() => {
+                msg.innerHTML = "";
+            }, 3000)
+        }
+
+        Display.prototype.clear = function () {
+            let form = document.getElementById("form1");
+            form.reset();
+
+        }
+
+
+        let form = document.getElementById("form1");
+        form.addEventListener('submit', onSubmitForm)
+
+        function onSubmitForm(e) {
+            e.preventDefault();
+            let name, author, type, Programming, LifeStyle, GK, display;
+
+            name = document.getElementById('bookName').value;
+            author = document.getElementById('authorName').value;
+            type = "";
+
+            Programming = document.getElementById("radio1");
+            if (Programming.checked)
+                type = "Programming";
+
+            LifeStyle = document.getElementById("radio2");
+            if (LifeStyle.checked)
+                type = "Lifestyle";
+
+            GK = document.getElementById("radio3");
+            if (GK.checked)
+                type = "General Knowledge";
+
+            const book = new Books(name, author, type);
+            const dis = new Display();
+
+            if (dis.validate(book)) {
+            let books = localStorage.getItem("books");
+            let newBook;
+            if (books == null) {
+                newBook = [];
+            } else {
+                newBook = JSON.parse(books);
+            }
+            let bookObj = {
+                name: book.bookName,
+                author: book.bookAuthor,
+                type: book.bookType
+            }
+            newBook.push(bookObj);
+            localStorage.setItem("books", JSON.stringify(newBook));
+        }
+            
+            if (dis.validate(book)) {
+                  showDisplay();
+                dis.clear();   
+                dis.show('success', 'Book Added Successfull');
+            }
+            else dis.show('danger', "Please Enter Valid Values");
+            e.preventDefault();
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>

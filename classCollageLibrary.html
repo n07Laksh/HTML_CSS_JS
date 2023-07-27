@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Collage Library</title>
+</head>
+<body>
+    <script>
+
+        class Library {
+            constructor(bookList){
+                this.bookList = bookList;
+                this.issuedBooks = {};
+            }
+            getBookList(){
+                this.bookList.forEach(element => {
+                    console.log(element);
+                });
+            }
+            issueBook(bookName,user){
+                if(this.issuedBooks[bookName] == undefined){
+                this.issuedBooks[bookName] = user;
+                }else{
+                    console.log("This book is already booked")
+                }
+            }
+            returnBook(bookName){
+               delete this.issuedBooks[bookName];
+            }
+        }
+        let lib = new Library(['Rich Dad Poor Dad','Psychology of Money','BEd','DEd']);
+    </script>
+</body>
+</html>

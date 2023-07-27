@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/sideBars.css">
+    <title>Side Bars</title>
+</head>
+<body>
+    <div class="sideBar" id="sideNav">
+        <a href="javascript:void(0);" class="closeBtn" onclick="closeTab()">&times;</a>
+        <a href="#"><i class="fa fa-home"></i> Home</a>
+        <a href="#"><i class="fa fa-search"></i> Search</a>
+        <a href="#"><i class="fa fa-envelope"></i> Contact</a>
+        <a href="#"><i class="fa fa-user"></i> About</a>
+    </div>
+    <div class="main" id="main">
+        <a href="JavaScript:void(0);" class="click" onclick="getSideBar()"><i class="fa fa-bars"></i></a>
+        <h1>Full Sidebar</h1>
+        <p>
+This sidebar is of full height (100%) and always shown.
+
+Scroll this window to see the "fixed" effect.
+
+Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.
+
+Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+    </div>
+
+    <script>
+        function getSideBar(){
+            // document.getElementById("sideNav").style.width = 100 + "%";
+            document.getElementById("sideNav").style.width = 250 + "px";
+            document.getElementById("main").style.marginLeft = 250 + "px";
+            document.body.style.backgroundColor = "rgba(0,0,0,0.5)";
+            // document.body.style.opacity = .5;
+        }
+        function closeTab(){
+            document.getElementById("sideNav").style.width = 0 ;
+            document.getElementById("main").style.marginLeft = 0 ;
+            document.body.style.backgroundColor = "white";
+            // document.body.style.opacity = 1;
+        }
+    </script>
+</body>
+</html>

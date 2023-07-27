@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeoLocation</title>
+</head>
+<body>
+    <div class="location">
+        <button onclick="getLocation()">Get Location</button>
+        <p id="location"></p>
+    </div>
+
+    <script>
+        function getLocation(){
+            console.log(navigator.geolocation)
+            if(navigator.geolocation){
+                navigator.geolocation.getCurrentPosition((position)=>{
+                    console.log(position)
+                    let x = document.getElementById("location");
+                    x.innerHTML = `Lattitude: ${position.coords.latitude}<br>
+                    Longtitude: ${position.coords.longitude}`
+                })
+
+            }else{
+                x.innerHTML = `your browser dosen't support location value`
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+:root {
+    --buttonColor: #04AA6D;
+    --greatShadow: #434343;
+}
+
+*{
+    box-sizing:border-box;
+}
+body{
+background-color: var(--greatShadow);
+color:var(--buttonColor)
+}
+
+.dropbtn {
+    background: var(--buttonColor);
+    color:white;
+    border:none;
+    padding:15px;
+    font: small-caps bold 20px georgia;
+    transition:all 0.4s ease;
+    
+}
+.dropbtn:hover {
+     background-color: var(--greatShadow);
+     text-shadow: 4px 5px 5px black;
+}
+.dropDown {
+    position:relative;
+    display:inline-block;
+}
+.dropDown .dropContent {
+    overflow: hidden;
+    display:none;
+}
+.dropDown .dropContent.show {
+    display:block;
+}
+.dropDown .dropContent a {
+    display:block;
+    text-align: center;
+    text-decoration: none;
+    margin:2px 0;
+    padding: 10px 0;
+    background-color: var(--buttonColor); 
+    color:white;
+    font: small-caps bold 19px serif;  
+    transition:all 0.4s ease;
+    
+}
+.dropDown .dropContent a:hover {
+    background-color: var(--greatShadow);
+    text-shadow: 4px 5px 5px black;
+}

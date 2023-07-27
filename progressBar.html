@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress Bar</title>
+    <style>
+    </style>
+</head>
+<body>
+      <div style="width:100%;height:30px;background-color:aliceblue;margin-top:30px;">
+        <div id="demo"d style="background-color:red;width:10%;height:30px;text-align: center;line-height:30px;color:white;">10%</div>
+    </div>
+    <button style="margin-top:20px;padding:10px 20px;color:red" onclick="move()">Click</button>
+
+
+<script>
+    // let i = 0;
+    function move(){
+        // i = 1;
+        var width = 10;
+        let id = setInterval(fram, 20);
+        function fram(){
+            if(width>=100){
+                clearInterval(id)
+                // i = 0;
+            }else{
+                width++;
+                document.getElementById("demo").style.width = width + "%";
+                document.getElementById("demo").innerHTML = width + "%";
+            }
+        }
+    }
+</script>
+</body>
+</html>

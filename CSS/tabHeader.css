@@ -1,0 +1,135 @@
+*{
+    box-sizing: border-box;
+
+}
+body,html{
+    height: 100%;
+    margin: 0;
+}
+
+/* top nav bar */
+.topnav{
+overflow:hidden;
+background: #389;
+}
+.topnav a{
+    text-decoration: none;
+    float:left;
+    display: block;
+    padding:20px;
+    font-size: 20px;
+    font-weight: bolder;
+    color: white;
+    transition: all 0.5s ease;
+}
+.topnav a:hover{
+    background-color:grey;
+}
+.topnav a.active {
+    background-color: aqua;
+    color:black;
+}
+.topnav a.icon {
+    display:none;
+}
+@media screen and (max-width: 600px){
+
+    .topnav a:not(:first-child){
+        display:none;
+    }
+    .topnav a.icon {
+        float:right;
+        display:block;
+        
+    }
+}
+@media screen and (max-width:600px)  {
+    .topnav.resp {position:relative;}
+    .topnav.resp a.icon {
+        position: absolute;
+        top:0;
+        right:0;
+    }
+    .topnav.resp a {
+        float:none;
+        display:block;
+        text-align: center;;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* tabHeader */
+.content {
+    text-transform: capitalize;
+    display: none;
+    width: 100%;
+    padding: 100px 20px;
+    height: 100%;
+    text-align: center;
+    animation: fade 0.7s ease;
+    
+
+}
+
+div.tab {
+
+    width: 100%;
+    height: 50px;
+    animation: fade 0.7s ease;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+div button.tabLink {
+    background-color: #555;
+    cursor: pointer;
+    float: left;
+    width: 25%;
+    height: 50px;
+    border: none;
+    outline: none;
+    font-size: 17px;
+    transition: all 0.5s ease;
+}
+
+div button.tabLink:hover {
+    background: #777;
+}
+
+#pink {
+    background: pink;
+}
+
+#blue {
+    background: blue;
+    color: white;
+}
+
+#aqua {
+    background: aqua;
+}
+
+#red {
+    background: red;
+    color: white;
+}

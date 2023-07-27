@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/lightBox.css">
+    <title>Light Box</title>
+</head>
+
+<body>
+    <div class="header"><h1>LightBox</h1></div>
+
+    <div class="row1">
+        <div class="column1">
+            <img class="demo1" onclick="openModal(),selectImg(1)" src="image/pexels-nout-gons-378570.jpg"
+                alt="This Image of Road of Full Man" width="100%" alt="">
+        </div>
+        <div class="column1">
+            <img class="demo1" onclick="openModal(),selectImg(2)" src="image/fredrik-solli-wandem-uNnN7IBN9As-unsplash.jpg"
+                width="100%" alt="">
+        </div>
+        <div class="column1">
+            <img class="demo1" onclick="openModal(),selectImg(3)" src="image/Rainmeter - Space Theme by Athox on DeviantArt.png"
+                width="100%" alt="">
+        </div>
+        <div class="column1">
+            <img class="demo1" onclick="openModal(),selectImg(4)" src="image/pexels-pixabay-460672.jpg"
+                alt="This Image of Road of Full Man" width="100%" alt="">
+        </div>
+    </div>
+
+
+
+    <div class="containerImage" id="disBlock">
+        <span class="cursor" id="close">&times;</span>
+        <div class="contentImage">
+            <div class="serialNumber">1 / 4</div>
+            <img src="image/pexels-nout-gons-378570.jpg" alt="This Image of Road of Full Man" width="100%"
+                height="500px">
+            <div class="caption"></div>
+        </div>
+        <div class="contentImage">
+            <div class="serialNumber">2 / 4</div>
+            <img src="image/fredrik-solli-wandem-uNnN7IBN9As-unsplash.jpg" height="500px" width="100%">
+            <div class="caption"></div>
+        </div>
+        <div class="contentImage">
+            <div class="serialNumber">3 / 4</div>
+            <img src="image/Rainmeter - Space Theme by Athox on DeviantArt.png" height="500px" width="100%">
+            <div class="caption"></div>
+        </div>
+        <div class="contentImage">
+            <div class="serialNumber">4 / 4</div>
+            <img src="image/pexels-pixabay-460672.jpg" alt="This Image of Road of Full Man" height="500px" width="100%">
+            <div class="caption"></div>
+        </div>
+
+        <a class="prev" onclick="plusImage(-1)">&#10094;</a>
+        <a class="next" onclick="plusImage(1)">&#10095;</a>
+
+
+        <div class="row">
+            <div class="column">
+                <img class="demo" onclick="selectImg(1)" src="image/pexels-nout-gons-378570.jpg"
+                    alt="This Image of Road of Full Man" width="100%" alt="">
+            </div>
+            <div class="column">
+                <img class="demo" onclick="selectImg(2)" src="image/fredrik-solli-wandem-uNnN7IBN9As-unsplash.jpg"
+                    width="100%" alt="">
+            </div>
+            <div class="column">
+                <img class="demo" onclick="selectImg(3)" src="image/Rainmeter - Space Theme by Athox on DeviantArt.png"
+                    width="100%" alt="">
+            </div>
+            <div class="column">
+                <img class="demo" onclick="selectImg(4)" src="image/pexels-pixabay-460672.jpg"
+                    alt="This Image of Road of Full Man" width="100%" alt="">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let itemIndex = 1;
+        showImage(itemIndex);
+        function plusImage(n) {
+            showImage(itemIndex += n)
+        }
+        function selectImg(n) {
+            showImage(itemIndex = n)
+        }
+
+
+        function showImage(n) {
+            let img = document.getElementsByClassName("contentImage");
+            let dot = document.getElementsByClassName("demo");
+            let i;
+            if (n > img.length) { itemIndex = 1 }
+            if (n < 1) { itemIndex = img.length }
+
+            for (i = 0; i < img.length; i++) {
+                if (img[i].style.display = "block") {
+                    img[i].style.display = "none";
+                }
+            }
+            for(i=0;i<dot.length;i++){
+                dot[i].className = dot[i].className.replace(" active", "")
+            }
+
+            img[itemIndex - 1].style.display = "block";
+            dot[itemIndex - 1].className += " active";
+
+        }
+
+        function openModal(){
+            document.getElementById("disBlock").style.display = "block";
+        }
+        let span = document.getElementById("close");
+        span.onclick = function(){
+            document.getElementById("disBlock").style.display = "none";
+        }
+    </script>
+
+</body>
+
+</html>

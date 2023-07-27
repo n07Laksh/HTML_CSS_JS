@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Image Selection</title>
+</head>
+<style>
+.imgDiv {
+width:100%;
+height:100%;
+border:1px solid red;
+}
+.img {
+    width:100%;
+    height: 100%;
+}
+</style>
+<body>
+  <input type="file" id="imageInput" accept="image/*">
+  <br>
+<div class="imgDiv">
+  <img class="img" id="selectedImage" src="#" alt="Selected Image" style="display: none;">
+  </div>
+  <script>
+    function handleImageSelect(event) {
+      var file = event.target.files[0];
+      var reader = new FileReader();
+
+      reader.onload = function(event) {
+        var selectedImage = document.getElementById('selectedImage');
+        selectedImage.src = event.target.result;
+        selectedImage.style.display = 'block';
+      };
+
+      reader.readAsDataURL(file);
+    }
+
+    var imageInput = document.getElementById('imageInput');
+    imageInput.addEventListener('change', handleImageSelect);
+  </script>
+</body>
+</html>

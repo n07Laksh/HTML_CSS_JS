@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Full Screen</title>
+    <style>
+        button{
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    
+<button onclick="fullscreen()">fullScreen</button>
+<button onclick="exitFullscreen()">ExitScreen</button>
+
+<img id="demo" style="display:block;" src="image/pexels-pixabay-460672.jpg" alt="" width="600px">
+
+
+<script>
+    function fullscreen(){
+        var img = document.getElementById("demo");
+        // img = document.documentElement;
+
+        if(img.requestFullscreen()){
+            img.requestFullscreen();
+        } 
+        // else if(img.webkitRequestFullScreen()){
+        //     img.webkitRequestFullscreen();
+        // } else if(img.msRequestFullscreen()){
+        //     img.msRequestFullscreen();
+        // }
+    }
+
+    function exitFullscreen(){
+        if(document.exitFullscreen()){
+            document.exitFullscreen();
+        }
+    }
+
+
+</script>
+</body>
+</html>

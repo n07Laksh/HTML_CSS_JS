@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select name="" id="select">
+        <option value="select">Select</option>
+        <option value="Yellow">Yellow</option>
+        <option value="Pink">Pink</option>
+        <option value="Red">Red</option>
+    </select>
+
+    <script>
+      showCookie();
+     let select = document.getElementById("select");
+     select.addEventListener('change',function(){
+        let body = document.body;
+        if(select == 'select'){
+            body.style.backgroundColor = '';
+        }
+        else{
+        body.style.backgroundColor = select.value;
+        document.cookie = "color=" + select.value;
+        }
+     })
+
+     function showCookie() {
+        if(document.cookie != 0){
+
+        let arr = document.cookie.split("=");
+        let select = document.getElementById("select").value = arr[1];
+        document.body.style.backgroundColor = arr[1];
+        }
+     }
+    </script>
+</body>
+</html>

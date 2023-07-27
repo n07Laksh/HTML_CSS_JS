@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/signupForm.css">
+    <title>Signup Form</title>
+</head>
+
+<body>
+
+        <div class="button">
+            <button onclick="document.getElementById('model').style.display='block'">Sign Up</button>
+        </div>
+
+    <div class="model" id="model">
+        <span onclick="document.getElementById('model').style.display='none'" class="closebtn">&times;</span>
+        <form action="" class="form_content">
+            <div class="container">
+            <div>
+                <h1 style="font:bolder 50px georgia;">Sign Up</h1>
+            </div>
+            <p>Please fill in this form to create an account.</p>
+            <hr>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter Email" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter Password" required>
+
+            <label for="password">Repeat Password</label>
+            <input type="password" id="password" name="password" placeholder="Repeat Password" required>
+
+            <input type="checkbox" id="checkbox" checked>
+            <label for="checkbox">Remember Me</label>
+            <br>
+            <br>
+
+            <span >By creating an account you agree to our <a href="#"> Terms & Privacy</a></span>
+            <br>
+            <div class="clearfix">
+            <button onclick="document.getElementById('model').style.display='none'" class="btn btn1">Cancel</button>
+            <input type="submit" class="btn btn2" value="Sign Up">
+           </div>
+        </div>
+        </form>
+    </div>
+</body>
+
+</html>

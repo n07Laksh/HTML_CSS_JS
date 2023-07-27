@@ -1,0 +1,121 @@
+
+form{
+    border: 5px solid #f1f1f1;
+}
+body{
+    overflow: auto;
+}
+.container {
+    display:none;
+    position:fixed;
+    
+    top:50%;
+    left:50%;
+    width:90%;
+    margin:0 auto;
+    transform: translate(-50%,-45%);
+    background-color: aliceblue;
+    overflow:auto;
+    transition: all .5s ease;
+    user-select: none;
+    
+}
+#formAnimation{
+    animation: shake .7s ease;
+}
+@keyframes shake{
+    from{
+        transform: scale(0);
+    }
+    to{
+        transform: scale(1);
+    }
+}
+.cancelbtn {
+    position:absolute;
+    top:10px;
+    right:15px;
+    font: bolder 40px georgia;
+    padding:5px 10px; 
+}
+.cancelbtn:hover{
+    background-color: azure;
+    cursor: pointer;
+}
+.container1{
+    padding: 16px;
+    /* background-color: white; */
+}
+
+input[type=text], input[type=password] {
+    width:100%;
+    padding:12px 20px;
+    display:inline-block;
+    border:1px solid #f1f1f1;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    font:18px georgia;
+    outline: 1px solid grey;
+}
+input[type=checkbox]{
+cursor: pointer;
+}
+label {
+    margin-left:10px;
+    font: 20px georgia;
+}
+.btn {
+    width:100%;
+    padding:10px 20px;
+    background-color: #04aa6D;
+    color: white;
+    font: 20px serif;
+    margin: 10px 0;
+    border:none;
+    cursor: pointer;
+}
+.imgContainer {
+    text-align: center;
+    padding:20px 0 12 px 0;
+}
+img{
+    width:40%;
+    border-radius: 50%;
+}
+.cancel {
+    margin-top: 20px;
+    padding: 10px 30px;
+    border:1px solid #f1f1f1;
+    font: 20px serif;
+    background-color: #f44336;
+    color:white;
+    cursor: pointer;
+}
+span.psw {
+    float:right;
+    padding-top: 30px;
+}
+.loginbtn {
+    margin: 20% 0 0 20%;
+    padding: 10px 30px;
+    border : none;
+    background-color: #04aa6D;
+    color:white;
+    font: 20px georgia;
+    cursor: pointer;
+}
+@media screen and (min-width:500px){
+    .container {
+        width:80%;
+    }
+}
+@media screen and (min-width:1000px){
+    .container {
+        width:70%;
+        height:100%;
+        top:48%; 
+    }
+    img{
+        width:30%;
+    }
+}

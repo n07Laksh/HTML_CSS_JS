@@ -1,0 +1,103 @@
+
+*{
+    box-sizing: border-box;
+    font: 20px georgia;
+}
+
+.model {
+    display:none;
+    position:fixed;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    z-index: 1;
+    overflow: auto;
+    animation: zoom .7s ease;
+    background-color: #474e5d;
+
+}
+@keyframes zoom {
+    from{
+        transform:scale(0);
+    }
+    to{
+        transform:scale(1)
+    }
+}
+input[type=email],input[type=password]{
+    width:100%;
+    display:inline-block;
+    padding:15px;
+    margin:5px 0 22px 0;
+    border:none;
+    background-color: #f1f1f1;
+    outline:1px solid #f1f1f1;
+}
+.form_content {
+    
+    margin:5% auto 15% auto;
+    border: 1px solid aliceblue;
+    background-color:#fefefe;
+    width:80%;
+}
+input[type=email]:focus,input[type=password]:focus {
+            background-color: #ddd;
+}
+.closebtn {
+    position:absolute;
+    top:30px;
+    right:80px;
+    padding:5px 10px;
+    font-size:40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.closebtn:hover{
+   color: red;
+}
+.container {
+    padding:16px;
+}
+
+hr{
+    border:1px solid #ddd;
+    margin-bottom:40px;
+}
+.btn {
+    float:left;
+    width:50%;
+    border:none;
+    padding:10px;
+    color:white;
+    margin-top:30px;
+    opacity:.8;
+    cursor: pointer;
+
+}
+.btn1 {
+    background-color: #f44336;
+
+}
+.btn2 {
+    background: #04AA6D;
+}
+.btn1:hover,.btn2:hover {
+    opacity:1;
+}
+.button button {
+    border:none;
+    color:white;
+    background-color: #04AA6D;
+    padding:10px 25px;
+    cursor: pointer;
+    opacity:.7;
+}
+.button button:hover{
+    opacity:1;
+}
+.clearfix::after {
+    content:"";
+    display:table;
+    clear:both;
+}

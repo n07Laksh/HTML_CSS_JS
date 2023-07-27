@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/imgModel.css">
+    <title>Image Model</title>
+</head>
+<body>
+    
+
+    <img id="myImg" src="image/kisspng-beijing-cartoon-skewdoku-poster-illustration-vector-picnic-family-5a96b32ca72af0.8114516515198257086847.png" alt="skewdoku-poster-illustration-vector-picnic" width="400px" height="300px">
+
+
+    <div class="modal" id="modelImg">
+
+        <span class="close" id="close">&times;</span>
+        <img class="imgModal" id="myImg1">
+        <div id="caption"></div>
+    </div>
+<script>
+
+// get the clickable image for click function
+let myImg = document.getElementById("myImg");
+
+
+    let modelImg = document.getElementById("modelImg");
+    let imgModal = document.getElementById("myImg1");
+    let caption = document.getElementById("caption");
+
+myImg.onclick = function() {
+    modelImg.style.display = "block";
+    imgModal.src = myImg.src;
+    caption.innerHTML = myImg.alt;
+}
+let closebtn = document.getElementById("close");
+closebtn.onclick = function(){
+    modelImg.style.display = "none";
+}
+</script>
+
+</body>
+</html>

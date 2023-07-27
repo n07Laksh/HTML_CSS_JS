@@ -1,0 +1,103 @@
+<!-- <!DOCTYPE html> -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="title">Dictionary API </title>
+    <style>
+        .span{
+            padding: 10px;
+            color:red;
+            font: bolder 20px georgia;
+        }
+        .example{
+            
+            color:green;
+            font:bold 16px;
+        }
+        .ex {
+            background: yellow;
+            color:black;
+            text-align: left;
+            padding:5px;
+        }
+        /* .error {
+            width:100%;
+            height: 100%;
+            background: #04aa;
+        } */
+        .warning{
+            background: red;
+            color:white;
+        }
+    </style>
+</head>
+<body>
+    <form action=""  onsubmit="getWords(event)" onkeyup="getword(event)">
+    <input id="searchWord" type="text" placeholder="Search Words">
+    <input id="btn" type="submit" value="Search">
+</form>
+
+<p id="demo"></p>
+    
+
+    <script>
+        function getword(e){
+            let b = document.getElementById("searchWord");
+            if(b.value == 0){
+                document.getElementById("demo").innerHTML = " ";
+                document.body.style.backgroundColor = "white";
+                b.style.backgroundColor = "white";
+                document.title = "Dictionary API";
+                console.clear();
+            }else{
+            getWords(e)
+            }
+        }
+        async function getWords(e){
+            e.preventDefault();
+
+
+        let b = document.getElementById("searchWord");
+        let bstr = b.value.toString();
+        let btn = document.getElementById("btn");
+        const api_url = `https://api.dictionaryapi.dev/api/v2/entries/en/${bstr}`;
+
+        document.title = b.value;    
+
+            const response = await fetch(api_url);
+
+            const data = await response.json();
+            // console.log(data)
+
+            if(data.title){
+                document.body.style.backgroundColor = "#04aa";
+                b.style.backgroundColor = "yellow";
+
+
+                let html = `<div class="error"><p>No Definitions Found</p>
+                            Sorry, we couldn't find definitons for word you were looking for
+                            <h2 class="warning"><i>You can try search again at different word</i></h2></div>`;
+                document.getElementById("demo").innerHTML = html;           
+        }else{
+            let a  = data[0].meanings[0].definitions;
+            let html = "";
+            for(let i of a){
+               html += `<p><span class="span">=></span> ${i.definition}</p>`;
+               if(i.example != undefined){
+               html += `<p class='ex'><span class="example">Example -- </span>${i.example}</p>`;
+            }
+               
+            }
+            document.getElementById("demo").innerHTML = html;
+            if(b.value == 0){
+                html = "";
+            }
+        }
+            
+            
+        }
+    </script>
+</body>
+</html>

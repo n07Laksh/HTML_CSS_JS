@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSA</title>
+</head>
+<body>
+    <button onclick="bbb()">Open</button>
+    <button onclick="aaaa()">Close</button>
+
+    <!-- <script src="findUniqueValues.js"></script> -->
+    <!-- <script src="calculateArraySumOfGivenLength.js"></script> -->
+    <!-- <script src="removeArrayDuplicateValue.js"></script> -->
+    <!-- <script src="binarySearch.js"></script> -->
+    <!-- <script src="availSquareinSecondArray.js"></script> -->
+    <!-- <script src="recursiveFunc.js"></script> -->
+    <!-- <script src="linearSearch.js"></script> -->
+    <!-- <script src="bubbleSorting.js"></script> -->
+    <!-- <script src="subArrWithGivenSum.js"></script> -->
+    <!-- <script src="minNumofJump.js"></script> -->
+    <!-- <script src="Selection Sorting.js"></script> -->
+    <!-- <script src="insertion sorting.js"></script> -->
+    <!-- <script src="max char in string.js"></script> -->
+    <!-- <script src="palidrome string.js"></script> -->
+    <!-- <script src="palidrome string.js"></script> -->
+    <!-- <script src="longest str without repeating char.js"></script> -->
+    <!-- <script src="roman to Integer.js"></script> -->
+    <!-- <script src="ransomNote.js"></script> -->
+    <!-- <script src="FizzBuzz.js"></script> -->
+    <!-- <script src="WeakestRowInMatrix.js"></script> -->
+    <!-- <script src="richestCustomer.js"></script> -->
+    <!-- <script src="reduceNumToZeroSteps.js"></script> -->
+    <!-- <script src="sumOfGivenNumber.js"></script> -->
+    <!-- <script src="Add Two Numbers.js"></script> -->
+    <script src="integerToRoman.js"></script>
+    <!-- <script src="LinkedList.js"></script> -->
+
+
+
+
+    <script>
+        let win = '';
+        function bbb(){
+            
+        win = window.open("","_blank","width=400,height=300");
+        win.document.body.innerHTML = "<p>This is 'MsgWindow'. I am 200px wide and 100px tall! " + win.name + "</p>";
+        }
+    function aaaa(){
+        if(win.closed === false){
+        // win.location.replace("https://www.w3schools.com/");
+        setTimeout(()=>{
+            let confir = confirm("are you Wanna close the window");
+            if(confir === true)
+            win.close();
+        },1000)
+      }else alert("new window is not opened");
+    }
+    </script>
+</body>
+</html>

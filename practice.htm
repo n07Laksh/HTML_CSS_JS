@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Practice Set</title>
+    <link rel="icon" type="image/x-icon" href="image/index.icon.png">
+        <style>
+          button{
+            padding:3px 9px;
+            opacity:0;
+            border:none;
+            outline:none;
+            background:#04AA6d;
+            color:white;
+            transition:all .5s ease;
+          }
+          input:not(:placeholder-shown) + button {
+            opacity:1;
+          }
+          input:invalid {
+            color:red;
+            animation: shake .2s ease;
+            border:1px solid red;
+          }
+          input:focus {
+            outline:none;
+            border:1px dashed green;
+          }
+          @keyframes shake {
+            25% { transform: translateX(7px);}
+            50% { transform: translateX(-7px);}
+            75% { transform: translateX(7px);}
+          }
+
+        </style>
+  </head>
+<body onresize="click()">
+  <ul class="nav bg-dark text-light">
+    <li class="nav-item">
+      <a href="#" class="nav-link">firstLink</a>
+    </li>
+    <li class="nav-item">
+      <a href="#" class="nav-link">secondLink</a>
+    </li>
+    <li class="nav-item">
+      <a href="#" class="nav-link disabled">thirdLink</a>
+    </li>
+  </ul>
+    <div id="container" class="container">
+        <h1 class="heading">This is a first Heading</h1>
+        <p id="demo" class="bg-success" contenteditable="true" >This is a Paragraph</p>
+        <p id="demo1" class="para" data-dismiss="close">This </p>
+        <a id="ancor1" href="#"></a>
+        <a id="ancor2" href="#"></a>
+        <a id="ancor3" href="#"></a></br>
+        <a id="ancor4" href="#">Hello Buddy</a><br>
+        <div class="container">
+        <input type="text" pattern="[a-z]*" placeholder="Search for something" id="input">
+        <button>Submit</button>
+        </div>
+    </div>
+    
+    <!-- <img src="image/12.png" alt="" srcset=""  id="myImg"><br>
+
+    <button onclick="moveRight()">Click</button> -->
+    <!-- <button onclick="display()">Click</button>
+    <select name="" id="color" onchange="display()">
+    <option value="Select Color">Select Color</option>
+    <option value="Red">Red</option>
+    <option value="Black">Black</option>
+    <option value="Yellow">Yellow</option>
+    <option value="Blue">Blue</option>
+</select> -->
+<!-- <svg width="600" height="400">
+    <defs>
+        <filter id="f1" x="0" y="0">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="10"/>
+        </filter>
+    </defs> 
+    <ellipse cx="300" cy="200" rx="200" ry="50" fill="black" filter="url(#f1)"/>
+    <ellipse cx="230" cy="200" rx="180" ry="25" fill="yellow"/>
+    <ellipse cx="200" cy="200" rx="120" ry="15" fill="white"/>
+    <ellipse cx="400" cy="200" rx="120" ry="15" fill="white"/>
+    <ellipse cx="100" cy="100" rx="100" ry="100" fill="red"/>
+    <circle cx="120" cy="100" r="60" fill="black" stroke="green" stroke-width="3"/>
+    <circle cx="100" cy="100" r="40" fill="red" stroke="" stroke-width=""/>
+
+    
+</svg>
+<svg width="400" height="400" style="border:1px solid black;">
+    <defs>
+        <filter id="f1" x="0" y="0">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="10"/>
+        </filter>
+    </defs> 
+    <rect x="10" y="10" width="100" height="100" fill="black" filter="url(#f1)" />
+    <line x1="0" y1="400" x2="400" y2="0" stroke="red"/>
+</svg> -->
+
+<!-- <svg width="400" height="400">
+    <rect x="20" y="20" width="250" height="250" style="fill:blue">
+      <animate attributeType="CSS" attributeName="opacity" from="1" to="0" dur="5s" repeatCount="indefinite" />
+    </rect>
+    Sorry, your browser does not support inline SVG.  
+  </svg>
+
+  <svg width="500" height="500">
+    <rect id="rec" x="300" y="100" width="300" height="100" style="fill:lime"> 
+      <animate attributeName="x" attributeType="XML" begin="0s" dur="6s" fill="freeze" from="300" to="0" /> 
+      <animate attributeName="y" attributeType="XML" begin="0s" dur="6s" fill="freeze" from="100" to="0" /> 
+      <animate attributeName="width" attributeType="XML" begin="0s" dur="6s" fill="freeze" from="300" to="800" /> 
+      <animate attributeName="height" attributeType="XML" begin="0s" dur="6s" fill="freeze" from="100" to="300" /> 
+      <animate attributeName="fill" attributeType="CSS" from="lime" to="red" begin="2s" dur="4s" fill="freeze" />
+    </rect>
+    Sorry, your browser does not support inline SVG.
+  </svg>
+
+  <svg width="500" height="500">
+    <rect x="10" y="20" width="90" height="60">
+      <animate id="a1" attributeName="fill" from="red" to="blue" dur="3s" fill="freeze" />
+    </rect>
+    <rect x="10" y="120" width="90" height="60">
+      <animate id="a2" attributeName="fill" from="blue" to="yellow" begin="a1.end" dur="3s" fill="freeze" />
+    </rect>
+    <rect x="10" y="220" width="90" height="60">
+      <animate id="a3" attributeName="fill" from="yellow" to="green" begin="a2.end" dur="3s" fill="freeze" />
+    </rect>
+    Sorry, your browser does not support inline SVG.  
+  </svg>
+
+  <svg width="500" height="500">
+    <g transform="translate(100,100)">
+      <text id="TextElement" x="0" y="0" style="font-family:Verdana;font-size:24"> It's SVG!
+        <animateMotion path="M 0 0 L 100 100" dur="5s" fill="freeze" />
+      </text>
+    </g>
+    Sorry, your browser does not support inline SVG.  
+  </svg> -->
+
+
+    <!-- <div id="inputDiv">
+        
+        <input type="number" id="date" placeholder="Date.......">
+        <input type="number" id="month" placeholder="Month........">
+        <input type="number" id="year" placeholder="Year.........">
+        <input type="submit" onclick="totalAge()" value="Submit">
+        
+   
+    <p id="totalAge"></p>
+    </div> -->
+    <!-- <script src="javaScript/day1.js"></script> -->
+    <!-- <script src="javaScript/day2.js"></script> -->
+    <!-- <script src="javaScript/day3.js"></script> -->
+    <!-- <script src="javaScript/day4.js"></script> -->
+    <!-- <script src="javaScript/day5.js"></script> -->
+    <!-- <script src="javaScript/day6.js"></script> -->
+    <!-- <script src="javaScript/day7.js"></script> -->
+    <!-- <script src="javaScript/day8.js"></script> -->
+    <!-- <script src="javaScript/day9.js"></script> -->
+    <!-- <script src="javaScript/day10.js"></script> -->
+    <!-- <script src="javaScript/day11.js"></script> -->
+    <!-- <script src="JavaScript/day12.js"></script> -->
+    <!-- <script src="JavaScript/day13.js"></script> -->
+    <!-- <script src="JavaScript/day14.js"></script> -->
+    <script src="JavaScript/day15.js"></script>
+    <script src="JS_Refrences/date.js"></script>
+    <script type="module">
+           
+           (function(a){
+            console.log(a);
+           })("Hello");
+    </script>
+
+
+    <script type="module">
+  import {a,b,c,arr} from "./exportData.js";
+  // import {c} from './exportData.js';
+  import message from "./exportData.js";
+  console.log(`${a} ${b} ${c} ${message} ${arr}`)
+    </script>
+    
+    
+</body>
+</html>

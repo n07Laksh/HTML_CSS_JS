@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag and Drop</title>
+    <style>
+#div1, #div2 {
+  float: left;
+  width: 100px;
+  height: 50px;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid black;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<h2>Drag and Drop</h2>
+<p>Drag the image back and forth between the two div elements.</p>
+
+<div id="div1" ondrop="drop(event)" ondragover="dragOver(event)">
+    <img src="image/5.png" draggable="true" ondragstart="drag(event)" id="para" width="50px" height="50px">
+</div>
+
+<div id="div2" ondrop="drop(event)" ondragover="dragOver(event)"></div>
+
+
+<script>
+    function dragOver(e){
+        e.preventDefault();
+    }
+
+    function drag(e){
+        e.dataTransfer.setData("text",e.target.id);
+    }
+
+    function drop(e){
+        e.preventDefault();
+        let data = e.dataTransfer.getData("text");
+        e.target.appendChild(document.getElementById(data));
+    }
+</script>
+</body>
+</html>

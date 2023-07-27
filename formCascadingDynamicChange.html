@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic cascading form change</title>
+
+    <style>
+        :root{
+            --color: black;
+            --bgColor: lightblue;
+        }
+        *{ user-select: none;
+            font: bolder 20px serif;
+            color: var(--color);
+            background-color:var(--bgColor);
+        }
+    </style>
+</head>
+<body style="text-align:center;margin-top:50px;">
+    Course: <select name="course" id="course">
+        <Option>Please Select Course</Option>
+    </select>
+    <br><br>
+    Chapter: <select name="chapter" id="chapter">
+        <Option>Please Select Chapter</Option>
+    </select><br><br>
+    Topic: <select name="topic" id="topic">
+        <Option>Please Select Topic</Option>
+    </select>
+
+
+    <script>
+        let selectObject = {
+            Front_End: {
+                HTML:["DIV","HEADER","FOOTER","P"],
+                CSS:["COLOR","ANIMATION","TRANSFORM","BAKCGROUND","ALL"],
+                JavaScript:["FETCH","GEOLOCATION","JASON","ARRAY","OBJECT","STRING"]
+            },
+            Back_End: {
+                PHP:["LOOP","ASSIGNMENT","IF ELSE"],
+                SQL:["SELECT","DELETE","CREATE","DROP"]
+            }
+        }
+        window.onload = function(){
+            let course = document.getElementById("course");
+            let chapter = document.getElementById("chapter");
+            let topic = document.getElementById("topic");
+            for(let x in selectObject){
+            course.options[course.options.length] = new Option(x,x);
+        }
+        course.onchange = function(){
+            chapter.length = 1;
+            topic.length = 1;
+            for(let y in selectObject[this.value]){
+                chapter.options[chapter.options.length] = new Option(y,y);
+            }
+        }
+        chapter.onchange = function(){
+            topic.length = 1;
+            let option = selectObject[course.value][this.value];
+            for(let z of option){
+                topic.options[topic.options.length] = new Option(z,z);
+            }
+        }
+        }
+    </script>
+</body>
+</html>

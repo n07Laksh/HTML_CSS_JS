@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>imageSlider</title>
+</head>
+<body>
+<input type="text">
+<button>Download File</button>
+<script>
+const inputVal =document.querySelector("input");
+const btn = document.querySelector("button");
+btn.addEventListener("click", async ()=>{
+console.log("Click");
+try{
+let res = await fetch(inputVal.value);
+res = await res.blob();
+let link = document.createElement("a");
+link.href = URL.createObjectURL(res);
+link.download = new Date().getTime();
+link.click();
+} catch(err){
+console.log("error", err);
+}
+})
+</script>
+</body>
+</html>

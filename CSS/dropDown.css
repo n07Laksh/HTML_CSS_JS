@@ -1,0 +1,52 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+.navTab{
+    overflow: hidden;
+    background: #05AA;
+    font:italic small-caps bold 18px serif;
+}
+.navTab a {
+    text-decoration: none;
+    float:left;
+    padding:14px 16px;
+    color:white;
+    text-align: center;
+}
+.navTab a:hover,.dropDown:hover .dropBtn {
+    background:#05AA;
+}
+.dropBtn {
+    float:left;
+    overflow: hidden;
+}
+.dropDown .dropBtn {
+    border:none;
+    outline:none;
+    padding:14px 7px;
+    background-color: inherit;
+    color:white;
+    font:italic small-caps bold 18px serif;
+    margin:0;
+}
+.dropDownContent{
+    display:none;
+    position:absolute;
+    top: 49px;
+    left: 26%;
+    min-width: 200px;
+    z-index: 1;
+    background-color: #05AA;
+}
+.dropDownContent a {
+    float:none;
+    display:block;
+}
+.dropDownContent a:hover {
+    background:color;
+}
+.dropDown:hover .dropDownContent {
+    display: block;
+}

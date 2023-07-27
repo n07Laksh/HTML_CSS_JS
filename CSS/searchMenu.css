@@ -1,0 +1,41 @@
+*{
+    box-sizing: border-box;
+}
+body,html{
+    margin:0;
+    padding:0;
+    background-color: gainsboro;
+}
+.row{
+    display:flex;
+}
+.left{
+    flex: 35%;
+    margin-right:10px;
+}
+.right{
+    flex: 65%;
+    margin-left:10px;
+}
+.myul{
+    list-style-type: none;
+    margin:0;
+    padding:0;
+}
+input[type*="search"] {
+    width:100%;
+    padding:7px;
+    border:none;
+    background: whitesmoke;
+}
+.myul li a {
+    padding: 10px 20px;
+    text-decoration: none;
+    display:block;
+    margin:2px;
+    
+
+}
+.myul li:hover{
+    background-color: whitesmoke;
+}

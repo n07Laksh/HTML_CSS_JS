@@ -1,0 +1,118 @@
+*{
+    box-sizing: border-box;
+    transition:all .3s ease;
+}
+body{
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    color: #fff;
+    --bg : rgb(33, 5, 72);
+    background-color: var(--bg);
+
+}
+
+.container{
+    position:fixed;
+    left:50%;
+    bottom:10px;
+    transform: translateX(-50%)
+}
+
+.player {
+    width:640px;
+    background: var(--bg);
+    display: grid;
+    grid-template-columns: 48px 1fr 48px;
+    grid-gap: 16px;
+    padding:8px 25px;
+    border-radius: 62px;
+    position: relative;
+}
+.player > div {
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#playbtn {
+    font-size: 22px;
+    color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white;
+    cursor: pointer;
+}
+#playbtn:hover{
+    -webkit-text-fill-color: #fff;
+}
+.progress{
+    --space: -3px;
+    background: #24242424;
+    overflow: hidden;
+    position: absolute;
+    left:var(--space);
+    right: var(--space);
+    top:var(--space);
+    bottom:var(--space);
+    border-radius: 62px;
+    z-index: -2;
+}
+.bar {
+    display: block;
+    width: var(--progress,0%);
+    background-color: #fff;
+    height:100%;
+    transition: all 0.2s ease;
+}
+
+.songs_list {
+    list-style-type: none;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    line-height:40px;
+}
+.songs_player {
+    width:70%;
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    margin:5px;
+    padding:5px 10px;
+    position:relative;
+    overflow:hidden;
+}
+.songs_item {
+    display: none;
+    position:absolute; 
+    padding: 0 30px;
+    height:100%;
+    left: 70%;
+    z-index:1;
+    text-align: center;
+    line-height:50px;
+    font-size: 20px;
+    font-weight: bold;
+    background:var(--bg);
+    overflow: hidden;
+    
+}
+.songs_player:hover .songs_item {
+    display: block;
+    cursor:pointer;
+}
+.infos {
+    width:100%;
+    height:30px;
+}
+.fa {
+    font-size: 20px;
+    color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white;
+    cursor: pointer;
+}
+.fa:hover{
+    -webkit-text-fill-color: #fff;
+}

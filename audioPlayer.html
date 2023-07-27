@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Player</title>
+    <link rel="icon" href="image/icon3.ico">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/audioPlayer.css">
+</head>
+
+<body>
+    <audio id="player" src="Audio/Bom Diggy Diggy 128 Kbps.mp3"></audio>
+    <div class="container">
+        <div class="player">
+            <div class="control">
+                <i class="fa fa-play" id="playbtn"></i>
+            </div>
+            <div class="info">
+                <div id="name">
+                Bom Diggy Diggy 128 Kbps</div>
+                <div class="progress">
+                    <div class="bar" id="bar"></div>
+                </div>
+            </div>
+            <div class="current" id="currentTime">0:00</div>
+        </div>
+    </div>
+
+    <ul class="songs_list">
+        <li class="songs_player">
+            <div class="songs_item">
+                <i class="btn fa fa-play"></i>
+            </div>
+            <div class="infos">Sawan_Aaya_Hai_(Female)_-_Neha_Kakkar(bossmobi)
+            </div>
+        </li>
+
+        <li class="songs_player">
+            <div class="songs_item">
+                <i class="btn fa fa-play"></i>
+            </div>
+            <div class="infos">Bom Diggy Diggy 128 Kbps
+            </div>
+        </li>
+
+        <li class="songs_player">
+            <div class="songs_item">
+                <i class="btn fa fa-play"></i>
+            </div>
+            <div class="infos">Sakhiyaan - Maninder Buttar (Mr-Punjab.Com)
+            </div>
+        </li>
+    </ul>
+
+    <script src="JS_Projects/audioPlayer.js"></script>
+</body>
+
+</html>

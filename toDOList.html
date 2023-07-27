@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/toDoList.css">
+    <link rel="icon" href="image/avatar1.png">
+    <title>To Do List</title>
+</head>
+
+<body>
+    <div class="container">
+        <input id="input" type="text" placeholder="input.....">
+        <span onclick="doList()" class="addbtn">Add</span>
+    </div>
+
+    <ul id="myUL">
+        <li class="checked">ABCDEFGHIJKLMNOP</li>
+        <li>hello This is something</li>
+    </ul>
+
+
+    <script>
+
+        let li = document.getElementsByTagName("li");
+
+        for (let i = 0; i < li.length; i++) {
+            let span = document.createElement("SPAN");
+            let t = document.createTextNode("\u00D7");
+            span.className = "close";
+            span.appendChild(t)
+
+            li[i].appendChild(span)
+        }
+
+        var close = document.getElementsByClassName("close");
+        for (let i = 0; i < close.length; i++) {
+                close[i].onclick = function(){
+                   let li = this.parentElement; 
+                   li.style.display = "none";
+                }
+        }
+
+        let list = document.querySelector("UL");
+
+        list.addEventListener("click", (e)=>{
+            if(e.target.tagName === "LI"){
+                e.target.classList.toggle("checked");
+            }
+        })
+
+
+
+
+
+        function doList() {
+            let li = document.createElement("li");
+
+            let text = document.getElementById("input").value;
+            
+            li.innerHTML = text;
+
+            if(text === ''){
+                alert("input feild must be filled")
+            }
+            else{
+                document.getElementById("myUL").appendChild(li);
+            }
+
+            let span = document.createElement("SPAN");
+            let t = document.createTextNode("\u00D7");
+            span.className = "close";
+              span.appendChild(t);
+
+              li.appendChild(span)
+
+            //   let close = document.getElementsByClassName("close");
+              for(let i=0; i < close.length; i++){
+                close[i].onclick = function(){
+                     let div = this.parentElement;
+                     div.style.display = "none";
+                }
+              }
+        }
+
+
+    </script>
+</body>
+
+</html>

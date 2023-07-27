@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+     <title>Program1</title>
+</head>
+
+<body style="text-align:center;font:20px georgia">
+     <input  id="input" type="text">
+     <input type="submit" onclick="submit()">
+     <p id="demo"></p>
+     <p id="demo1"></p>
+     <script>
+          //"use strict"
+
+          const car = {
+               name: "Lamborgini",
+               model: {
+                    2020: ["cd3", "3ks", "uuf", "laksh"],
+                    2021: ["aa3", "32k", "aks"],
+                    2022: ["aaa", "bbb", "ccc", "ddd33"]
+               }
+          }
+
+          let val = car.model;
+          //console.log(val);
+          let text = '';
+          for (let i in val) {
+               text += `<h1>${i}</h2>`;
+               for (let z of val[i]) {
+                    text += `<p>${z}</p>`;
+               }
+          }
+          document.writeln(text);
+
+
+
+      async function htmlFile(file){
+          let textObject = await fetch(file);
+          let text = await textObject.text();
+          document.getElementById("demo").innerHTML = text;
+      }
+      htmlFile("Program4.html")
+
+      fetch("progressBar.html")
+      .then(x=>x.text())
+      .then(y=>document.getElementById("demo1").innerHTML = y)
+     
+
+
+          function submit(){
+               let x = document.getElementById("input").value;
+          try {
+               if(x == "") throw "Please write some value";
+                if(isNaN(x)) throw "Value must be a number";
+                x = Number(x)
+                if(x>=100) throw "value is so large";
+                if(x<1) throw "value is to small"
+          } catch (error) {
+               console.log(error)
+               
+          }
+          finally{
+               document.getElementById("input").value = "";
+          }
+     }
+
+     </script>
+</body>
+
+</html>

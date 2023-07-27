@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/dropDowns.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="dropDown">
+
+        <button class="dropbtn" id="btn" onclick="getElements(event,this)">Dropdown</button>
+        <div class="dropContent" id="content">
+            <input id="search" type="search" onkeyup="search()" placeholder="🔍Search......" style="padding:10px;border:none;background:powderblue;">
+            <a href="javascript:void(0);">Daharwal</a>
+            <a href="javascript:void(0);">KhemLal</a>
+            <a href="javascript:void(0);">Only Hope</a>
+            <a href="javascript:void(0);">Laksh</a>
+            <a href="javascript:void(0);">Motivational</a>
+            <a href="javascript:void(0);">Nishad</a>
+            <a href="javascript:void(0);">World</a>
+            <a href="javascript:void(0);">Python</a>
+            <a href="javascript:void(0);">javascript</a>
+            <a href="javascript:void(0);">Saraipali</a>
+            <a href="javascript:void(0);">Rewa</a>
+            <a href="javascript:void(0);">Picture</a>
+            <a href="javascript:void(0);">Horses</a>
+            <a href="javascript:void(0);">Laxmilal</a>
+            <a href="javascript:void(0);">World</a>
+            <a href="javascript:void(0);">Python</a>
+            <a href="javascript:void(0);">javascript</a>
+            <a href="javascript:void(0);">Saraipali</a>
+            <a href="javascript:void(0);">Rewa</a>
+            <a href="javascript:void(0);">Picture</a>
+            <a href="javascript:void(0);">Horses</a>
+            <a href="javascript:void(0);">Laxmilal</a>
+        </div>
+        </div>
+    </div>
+
+
+    <script>
+        // first Method
+        function getElements(event, btn) {
+            btn.nextElementSibling.classList.toggle("show");
+        }
+        // second Method and close the dropContent if user click out side of the button
+        // window.onclick = function (event) {
+        //     // for matching the event 
+        //     if (!event.target.matches("#btn")) {
+        //         var dropDowns = document.getElementsByClassName("dropContent");
+        //         let i;
+        //         for (i = 0; i < dropDowns.length; i++) {
+        //             if (dropDowns[i].classList.contains("show")) {
+        //                 dropDowns[i].classList.remove("show");
+        //             }
+        //         }
+        //     }else{
+        //         document.getElementById("content").classList.toggle("show");
+        //     }
+        // }
+
+
+
+
+        
+           // search function with onkeyup value
+
+           function search(){
+            let value,filter,dropContent,searchValue,i;
+            keys = document.getElementById("search");
+            filter = keys.value.toUpperCase();
+            dropContent = document.getElementById("content");
+            searchValue = dropContent.getElementsByTagName('a');
+
+            for(i=0;i<searchValue.length;i++){
+                if(searchValue[i].innerHTML.toUpperCase().includes(filter)){
+                    searchValue[i].style.display= '';
+                }else{
+                    searchValue[i].style.display = "none";
+                }
+            }
+           }
+
+    </script>
+</body>
+
+</html>

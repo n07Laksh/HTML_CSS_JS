@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Worker</title>
+</head>
+<body>
+    <button onclick="getWorker()">Click</button>
+    <p id="demo"></p>
+
+    <script>
+        // web Worker 
+        function getWorker(){
+            let a;
+
+            if(typeof(Worker)!== "undefined"){
+                if(typeof(a) == "undefined"){
+                    a = new Worker("JS_Projects/webWorker.js");
+                }
+                    a.onmessage = function(event){
+                    document.getElementById("demo").innerHTML = event.data + "<br>";
+            }
+          }
+        }
+    </script>
+</body>
+</html>

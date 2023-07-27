@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+            font-family: consolas;
+        }
+        body {
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #edf1f4;
+        }
+        .dark {
+            background-color: black;
+        }
+        .dark .calculator {
+            background-color: #33393e;
+            box-shadow: 15px 15px 20px rgba(0,0,0,0.25),-15px -15px 20px rgba(255,255,255,0.1);
+        }
+        .calculator {
+            position:relative;
+            width: 340px;
+            padding:20px;
+            border-radius: 10px;
+            box-shadow: 15px 15px 20px rgba(0,0,0,0.1),-15px -15px 20px #fffb;
+            overflow:none;
+        }
+        .calculator .buttons {
+            position: relative;
+            display:grid;
+            overflow: none;
+
+        }
+        .calculator .buttons #value {
+            position:relative;
+            grid-column: span 4;
+            user-select: none;
+            overflow:none;
+            text-align: end;
+            width:100%;
+            height: 100px;
+            line-height: 100px;
+            color: #5166d6;
+            box-shadow: inset 5px 5px 10px rgba(0,0,0,0.1),
+            inset -5px -5px 20px #fff;
+            border-radius: 10px;
+            margin-bottom: 14px;
+            padding: 0 20px;
+            font-size: 2em;
+            font-weight: 500;
+        }
+        .dark .calculator .buttons #value {
+            box-shadow: inset 15px 15px 20px rgba(0,0,0,0.5),
+            inset -15px -15px 20px rgba(255,255,255,0.1);
+            color:white;
+            
+        }
+        .calculator .buttons span {
+            position:relative;
+            padding: 10px;
+            box-shadow:5px 5px 10px rgba(0,0,0,0.1),
+            -5px -5px 20px #fff;
+            margin: 10px;
+            cursor:pointer;
+            user-select: none;
+            min-width: 40px;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2em;
+            color:#666;
+            border: 2px solid #edf1f4; 
+            box-shadow: 5px 5px 10px rgba(0,0,0,0.1),
+            -5px -5px 10px #fff;
+            border-radius: 10px;
+        }
+        .dark .calculator .buttons span {
+            color:#eee;
+            border: 2px solid #333;
+            box-shadow:  5px 5px 10px rgba(0,0,0,0.25),
+            -2px -2px 5px rgba(255,255,255,0.1);
+
+        }
+        .calculator .buttons span:active {
+            box-shadow: inset 5px 5px 8px rgba(0,0,0,0.3);
+            color:red;
+        }
+        .dark .calculator .buttons span:active {
+            box-shadow: inset 5px 5px 10px rgba(0,0,0,0.25),
+             inset -5px -5px 5px rgba(255,255,255,0.1);
+        }
+        .calculator .buttons span#clear {
+            grid-column: span 2;
+            background: red;
+            color:white;
+            
+        }
+        .calculator .buttons span#plus {
+            grid-row: span 2;
+            background-color: green;
+            color:white;
+            
+        }
+        .calculator .buttons span#eval {
+            background-color: #2196f3;
+            color:white;
+            
+        }
+        .togglebtn {
+            width:20px;
+            height:20px;
+            background: black;
+            position:fixed;
+            top:15px;
+            right:15px;
+            cursor:pointer;
+            user-select: none;
+            border-radius:50%;
+            border:2px solid #edf1f4;
+            box-shadow: 5px 5px 10px rgba(0,0,0,0.1),
+            -5px -5px 10px #fff;
+        }
+        .dark .togglebtn {
+            background-color: whitesmoke;
+            box-shadow: 5px 5px 10px rgba(0,0,0,0.1),
+            -5px -5px 10px rgba(0,0,0,0.1);
+        }
+        .togglebtn:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+        .dark .togglebtn:hover 
+        {
+            background: white;
+        }
+
+
+    
+    </style>
+</head>
+
+<body>
+    <div class="togglebtn"></div>
+
+    <div class="calculator">
+       
+        <div class="buttons">
+            <h2 id="value"></h2>
+            <span id="clear">Clear</span>
+            <span>/</span>
+            <span>*</span>
+            <span>7</span>
+            <span>8</span>
+            <span>9</span>
+            <span>-</span>
+            <span>4</span>
+            <span>5</span>
+            <span>6</span>
+            <span id="plus">+</span>
+            <span>1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>0</span>
+            <span>00</span>
+            <span>.</span>
+            <span id="eval">=</span>
+        </div>
+    </div>
+
+    <script>
+        let value = document.getElementById("value");
+        let btn = document.querySelectorAll("span");
+        let i,togglebtn,body;
+        togglebtn = document.querySelector(".togglebtn");
+        body = document.querySelector("body");
+
+        for(i =0; i<btn.length; i++){
+            btn[i].addEventListener("click", function(){
+                if(this.innerHTML == "="){
+                    value.innerHTML = eval(value.innerHTML);
+                }else{
+                    if(this.innerHTML == "Clear"){
+                        value.innerHTML = "";
+                    }else {
+                        value.innerHTML += this.innerHTML;
+                    }
+                }
+            })
+        }
+
+        togglebtn.onclick = function(){
+            body.classList.toggle("dark");
+        }
+    </script>
+</body>
+
+</html>

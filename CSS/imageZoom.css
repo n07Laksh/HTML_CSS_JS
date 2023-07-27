@@ -1,0 +1,26 @@
+*{
+    box-sizing:border-box;
+    margin:10;
+    padding:0;
+}
+.container-zoom-image {
+    width:300px; 
+    position:relative;
+    overflow:hidden; 
+    user-select: none; 
+    /* margin: 0 auto;  */
+}
+.image-zoom-lens {
+    position:absolute;
+    left:0;
+    right:0;
+    width:30px;
+    height:30px;
+    border:1px solid red;
+    
+}
+.zoomImageContainer {
+    /* border:1px solid black; */
+    width:300px;
+    height:200px;
+}

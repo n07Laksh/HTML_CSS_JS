@@ -1,0 +1,49 @@
+:root{
+    --blue : blue;
+    --red: red;
+}
+*{
+    margin: 0px;
+    padding:0px;
+}
+
+body{
+
+    background-image:url("image/Auroville\ Beach-For\ Surfing.jpg");
+    background-attachment:fixed;
+    /* background-blend-mode:luminosity; */
+}
+input[type*="number"]:focus{
+            color: green;
+            background: gainsboro;
+}
+input[type*="number"]{
+    padding: 4px;
+    width: 100px;
+    border-radius: 5px;
+}
+input[type*=button]{
+    border-radius: 3px 20px 3px 20px;
+    padding: 4px;
+    width: 80px;
+    background: aqua;
+}
+#demo2{
+   color:darkblue;
+   font-size : 1.5rem;
+   font-weight: bolder;
+}
+#demo1{
+background-color: rgba(0,0,0,0.8);
+color: rgba(2,200,200,1);
+font-weight: bolder;
+padding: 20px;
+margin-bottom:20px;
+}
+input[type*=button]:hover,input[type*="number"]:hover{
+
+box-shadow: 3px 4px 8px black;
+}
+div{
+    margin-bottom:10px;
+}

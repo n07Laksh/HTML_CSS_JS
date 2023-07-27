@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Color </title>
+    <style>
+        body{
+            transition: all .4s ease;
+        }
+        button {
+            padding:10px;
+            color:white;
+            font: 18px georgia;
+            background-color: #04AA6D;
+            border: none;
+            outline:none;
+        }
+        button:hover {
+            background-color:#0449;
+            box-shadow: 1px 3px 9px black;
+        }
+    </style>
+</head>
+<body style="text-align:center;">
+    <h1>Random Color Generator</h1>
+
+    <button onclick="colorGenerator()">Generate Colors</button>
+    <button onclick="StopGenerator()">Stop Generate Colors</button>
+
+
+    <script>
+        function headingColor(){
+            let h1 = document.getElementsByTagName("h1");
+            for(let i=0;i<h1.length;i++){
+            h1[i].style.color = "rgb(" + randomNum() + "," + randomNum() + "," + randomNum() +")";
+            }
+        }
+
+        function colorGenerator(){
+            document.body.style.backgroundColor = `rgb(${randomNum()},${randomNum()},${randomNum()})`;
+            setTimeout(colorGenerator,1000);
+            setTimeout(headingColor,500);
+        }
+        function StopGenerator(){
+            clearTimeout(colorGenerator)
+        }
+
+        function randomNum(){
+            let random = Math.floor(Math.random() * 255);
+            return random;
+            console.log(random)
+        }
+    </script>
+</body>
+</html>

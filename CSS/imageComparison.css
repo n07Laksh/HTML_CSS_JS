@@ -1,0 +1,28 @@
+*{
+    box-sizing:border-box;
+}
+.img-comp-container{
+    position:relative;
+    height: 300px;
+    user-select: none;
+}
+.img-comp-img {
+    position: absolute;
+    width:auto;
+    height:auto;
+    overflow: hidden;
+}
+
+.img-comp-img img {
+    display: block;
+}
+.image-slider {
+    position: absolute;
+    width:30px;
+    height:30px;
+    background: red;
+    cursor:ew-resize;
+    z-index:1;
+    opacity:0.3;
+    border-radius: 50px;
+}

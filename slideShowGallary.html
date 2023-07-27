@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/slideShowGallary.css">
+    <title>Slide Show Gallary</title>
+</head>
+
+<body>
+
+    <div class="containerImage">
+
+        <div class="imgContent">
+            <div class="serialNumber" id="serialNumber">1 / 5</div>
+            <img src='https://i.pinimg.com/236x/62/2d/db/622ddb63987528970c3b7cb65bfc6c43.jpg' alt="" width="100%">
+            <div class="caption"> Samundar wala najara</div>
+        </div>
+
+        <div class="imgContent">
+            <div class="serialNumber" id="serialNumber">2 / 5</div>
+            <img src='https://i.pinimg.com/236x/65/77/a4/6577a475b1b3329cf71daf3542477f6f.jpg' alt="" width="100%">
+            <div class="caption">Spider man bhai sahab mera favorite</div>
+        </div>
+
+        <div class="imgContent">
+            <div class="serialNumber" id="serialNumber">3 / 5</div>
+            <img src='https://i.pinimg.com/236x/72/6e/d4/726ed42e62252b7e918e364bea041b96.jpg' alt="" width="100%">
+            <div class="caption">Window 10 logo image</div>
+        </div>
+
+        <div class="imgContent">
+            <div class="serialNumber" id="serialNumber">4 / 5</div>
+            <img src='https://i.pinimg.com/236x/13/31/87/1331873b9b4a2deb111c02a220e044c8.jpg' alt="" width="100%">
+            <div class="caption">Laptop Vector</div>
+        </div>
+
+        <div class="imgContent">
+            <div class="serialNumber" id="serialNumber">5 / 5</div>
+            <img src='https://i.pinimg.com/236x/c9/c6/13/c9c613d7d86e916a8c6dd315fb3d2a4c.jpg' alt="" width="100%">
+            <div class="caption">View of evening sun</div>
+        </div>
+
+        <a class="prev" onclick="plusImage(-1)">&#10094;</a>
+        <a class="next" onclick="plusImage(1)">&#10095;</a>
+    </div>
+
+
+    <div class="row">
+
+        <div class="column">
+            <img onclick="gotoThis(1)" class="cursor dot" src='https://i.pinimg.com/236x/62/2d/db/622ddb63987528970c3b7cb65bfc6c43.jpg'
+                alt="">
+        </div>
+        <div class="column">
+            <img onclick="gotoThis(2)" class="cursor dot" src="https://i.pinimg.com/236x/65/77/a4/6577a475b1b3329cf71daf3542477f6f.jpg"
+                alt="">
+        </div>
+        <div class="column">
+            <img onclick="gotoThis(3)" class="cursor dot" src="https://i.pinimg.com/236x/72/6e/d4/726ed42e62252b7e918e364bea041b96.jpg"
+                alt="">
+        </div>
+        <div class="column">
+            <img onclick="gotoThis(4)" class="cursor dot"
+                src='https://i.pinimg.com/236x/13/31/87/1331873b9b4a2deb111c02a220e044c8.jpg' alt="">
+        </div>
+        <div class="column">
+            <img onclick="gotoThis(5)" class="cursor dot" src='https://i.pinimg.com/236x/c9/c6/13/c9c613d7d86e916a8c6dd315fb3d2a4c.jpg'
+                alt="">
+        </div>
+
+    </div>
+    <script>
+
+        let itemIndex = 1;
+        showImage(itemIndex)
+        setInterval(setInter,5000)
+        function setInter(){
+            itemIndex++
+            showImage(itemIndex)
+        }
+            
+        
+
+         function plusImage(n){
+            showImage(itemIndex += n)
+         }
+         function gotoThis(n){
+            showImage(itemIndex = n)
+         }
+
+
+        function showImage(index) {
+            let img = document.getElementsByClassName("imgContent");
+            let dot = document.getElementsByClassName("dot");
+            let caption = document.getElementsByClassName("caption");
+            let i;
+            for(i=0;i<img.length;i++){
+                if(img[i].style.display = "block")
+                     img[i].style.display = "none";
+            }
+            for(i=0;i<dot.length;i++){
+                dot[i].className = dot[i].className.replace(" active"," ");
+            }
+            for(i=0;i<caption.length;i++){
+        
+            }
+            
+            if(index > img.length){itemIndex = 1;}
+            if(index < 1){itemIndex = img.length;}
+            
+            img[itemIndex-1].style.display = "block";
+            dot[itemIndex-1].className += " active";
+            caption[itemIndex-1].style.display = "block";
+            
+        }
+
+    </script>
+</body>
+
+</html>

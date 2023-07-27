@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>include HTML</title>
+</head>
+
+<body>
+    <div w3-include-html="accordianTabs.html">hello</div>
+    <script>
+        w3IncludeHTML();
+        function w3IncludeHTML() {
+
+            let i, attr, elem, file, xtml;
+            attr = document.getElementsByTagName("*");
+            // console.log(attr);
+
+            for (i = 0; i < attr.length; i++) {
+                elem = attr[i];
+
+                file = elem.getAttribute("w3-include-html");
+                // console.log(file)
+                while (file) {
+                    xtml = new XMLHttpRequest();
+                    xtml.onreadystatechange = function () {
+                        if (this.readyState == 4) {
+                            if (this.status == 200) {
+                                elem.innerHTML = this.responseText;
+                            }
+                            if (this.status == 404) {
+                                elem.innerHTML = "file not found"
+                            }
+                            // elem.removeAttribute("w3-include-html")
+                            // w3IncludeHTML()
+                        }
+                    }
+                    xtml.open("GET",file,true);
+                    xtml.send();
+                    return;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

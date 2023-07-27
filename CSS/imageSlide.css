@@ -1,0 +1,84 @@
+*{
+    box-sizing:border-box;
+}
+body{
+    background-color:grey;
+    margin: 0;
+}
+img{
+    vertical-align: middle;
+    /* border:1px solid black; */
+}
+.container{
+    max-width:1000px;
+    position: relative;
+    margin: auto;
+}
+
+.text{
+    text-transform:capitalize;
+    font-weight: bolder;
+    font-size: 20px;
+    color: rgba(0,0,0,0.7);
+    /* padding: 8px 12px; */
+    position:absolute;
+    bottom:2px;
+    width:100%;
+    text-align: center;
+
+}
+ .prev, .next {
+    cursor: pointer;
+    font-weight: bolder;
+    font-size: 40px;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -30px;
+    user-select: none;
+    padding: 0px 9px;
+    border-radius: 5px 0 0 5px;
+    transition: 0.5s ease;
+}
+.next{
+    /* position: absolute; */
+    right: 0px;
+    border-radius: 0 5px 5px 0;
+}
+.prev:hover, .next:hover{
+    background-color:rgba(0,0,0,0.6);
+    color: rgba(255,255,255,0.6);
+}
+.count{
+    position: absolute;
+    top: 0px;
+    font-size: 20px;
+    font-weight:bolder;
+}
+.dot{
+    cursor:pointer;
+    background-color:white;
+    height: 15px;
+    width: 15px;
+    margin: 10px 0px;
+    display:inline-block;
+    border-radius: 50%;
+    user-select: none;
+    transition: background-color 0.6s ease;
+}
+.active, .dot:hover{
+    background-color:rgba(0,0,0,0.1)
+}
+.fade{
+    animation: fade 1s;
+}
+@keyframes fade {
+    from{opacity:.4}
+    to{opacity:1}
+}
+@media screen and (max-widht:440px){
+    .mySlide, img{
+        width: 400px;
+        height: 200px;
+    }
+}

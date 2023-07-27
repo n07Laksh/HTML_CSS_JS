@@ -1,0 +1,70 @@
+*{
+    box-sizing: border-box;
+}
+.container{
+    position:relative;
+    width:80%;
+    padding:40px;
+    background-color: aqua;
+    margin:0 auto;
+}
+input[type=text]{
+    width:80%;
+    padding:15px;
+    font: italic 20px georgia;
+    outline:none;
+    border:1px solid #f1f1f1;
+    border-right: 10px solid red;
+}
+
+.addbtn {
+    position: absolute;
+    top: 40px;
+    right: 5%;
+    overflow: hidden;
+    background-color: #04AA6D;
+    color:white;
+    padding: 11px 40px ;
+    font: italic bolder 30px serif;
+    transition: all 0.3s ease;
+    
+}
+.addbtn:hover{
+    background: #04AA;
+    cursor:pointer;
+}
+#myUL{
+    width:80%;
+    padding: 10px;
+    /* background:pink; */
+    margin: 0 auto;
+    /* text-align: center; */
+}
+
+ul{
+    
+    list-style: none;
+}
+li{
+    position:relative;
+    width:100%;
+    padding:19px 19px 19px 60px;
+    margin-bottom: 5px;
+    background:pink;
+}
+.checked {
+    background-color: grey;
+    text-decoration: line-through;
+}
+.close {
+    position:absolute;
+    top: 0;
+    right:0;
+    padding: 10px;
+    font: bolder 30px georgia;
+    opacity: 0.5;
+}
+.close:hover{
+    opacity: 1;
+    cursor:pointer;
+}

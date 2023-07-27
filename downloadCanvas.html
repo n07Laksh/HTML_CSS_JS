@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download</title>
+</head>
+<body>
+    <canvas id="canvas"></canvas></br>
+    <a href="#" id="downloadButton" download style="text-decoration:none;color:whitesmoke;background:black;padding:10px;">Download</a>
+
+    <script>
+        let canvas = document.getElementById("canvas");
+        let downloadBtn = document.getElementById("downloadButton");
+
+        var ctx = canvas.getContext("2d");
+        ctx.strokeStyle = "red";
+        ctx.lineWidth = 25;
+        ctx.beginPath();
+        ctx.arc(100,75,40,0,Math.PI*2);
+        ctx.stroke();
+        var imgData = canvas.toDataURL("image/png");
+        downloadBtn.href = imgData;
+    </script>
+</body>
+</html>

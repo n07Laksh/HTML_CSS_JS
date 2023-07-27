@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSA</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #009860;
+        }
+
+        .div {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color:red;
+            font: italic bolder 17px arial, serif, georgia;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div"></div>
+    <button onclick="message()">Click</button>
+    <button onclick="mes()">Daba Ballu</button>
+    <script>
+
+
+        // handle error with random way
+        onerror = handleErr;
+        
+
+        function handleErr(msg, url, l) {
+            let txt = `
+            <div class="div">
+                <div class="content">
+                   Error:  ${msg} <br/>
+                   URL:  ${url} <br/>
+                    Line:  ${l} <br/>
+                </div>
+            </div>
+            `;
+
+           document.getElementById("div").innerHTML = txt;
+            return true;
+        }
+        function message() {
+
+            alertMe("welcome guest");
+        }
+
+    </script>
+
+</body>
+
+</html>

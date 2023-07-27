@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Short The HTML Elements</title>
+</head>
+
+<body>
+    <p>Click the button to sort the list alphabetically:</p>
+    <button onclick="sortList()">Sort</button>
+
+    <ul id="id01">
+        <li>Oslo</li>
+        <li>Stockholm</li>
+        <li>Helsinki</li>
+        <li>Berlin</li>
+        <li>Rome</li>
+        <li>Madrid</li>
+    </ul>
+
+
+    <script>
+        function sortList() {
+
+            // First Method
+            // let arr,i,elem,li;
+            // elem = document.getElementById("id01");
+            // li = elem.getElementsByTagName("LI")
+            // arr = [];
+
+            // for(i=0;i < li.length; i++){
+            //   arr[i] = li[i].innerHTML;
+            // }
+            // let arr1 = arr.sort();
+            // console.log(arr1)
+
+            // for(i= 0;i < li.length; i++){
+            //     li[i].innerHTML = arr1[i];
+            // }
+
+
+            // Second Method
+            let i, list, switching, shouldswitch;
+
+            list = document.getElementById("id01");
+            switching = true;
+
+            while (switching) {
+                switching = false;
+
+                let li = list.getElementsByTagName("LI");
+                
+                for (i = 0; i < li.length; i++){
+                    shouldswitch = false;
+                    if(li[i].innerHTML > li[i + 1].innerHTML){
+                        shouldswitch = true;
+                        break;
+                    }
+
+                }
+                if(shouldswitch){
+                    li[i].parentNode.insertBefore(li[i+1], li[i]);
+                    switching = true;
+                }
+            }
+
+        }
+    </script>
+</body>
+
+</html>

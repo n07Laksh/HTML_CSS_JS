@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/loginForm.css">
+    <title>Demo Login Form</title>
+</head>
+
+<body>
+    <div class="login">
+        <button onclick="document.getElementById('container').style.display = 'block';" class="loginbtn">Login</button>
+    </div>
+
+    <div class="container" id="container">
+        <form action="" id="formAnimation">
+            <span onclick="document.getElementById('container').style.display = 'none';"
+                class="cancelbtn">&times;</span>
+            <div class="imgContainer">
+                <img src="image/avatar1.png" alt="">
+            </div>
+            <div class="container1">
+                <label for="username"><b>Username</b></label>
+                <input type="text" name="usrname" id="username" placeholder="Enter Username" required>
+                <label for="password"><b>Password</b></label>
+                <input type="password" id="password" name="pass" placeholder="Enter Password" required>
+
+                <button class="btn">Login</button>
+                <input type="checkbox" id="checkbox" name="check" checked>
+                <label for="checkbox"><b>Remember Me</b></label><br>
+
+                <button class="cancel">Cancel</button>
+                <span class="psw">Forget<a href="#"> Password</a></span>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
